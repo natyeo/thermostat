@@ -15,6 +15,11 @@ describe ('Thermostat', function() {
     it('increases the temperature', function() {
       expect(thermostat.up()).toEqual(21);
     });
+
+    it('descreses the temperature', function() {
+      expect(thermostat.down()).toEqual(19);
+    });
+
   });
 
 });
