@@ -13,18 +13,25 @@ describe ('Thermostat', function() {
     });
 
     it('increases the temperature', function() {
-      expect(thermostat.up()).toEqual(21);
+      expect(thermostat.up(1)).toEqual(21);
     });
 
     it('descreses the temperature', function() {
-      expect(thermostat.down()).toEqual(19);
+      expect(thermostat.down(1)).toEqual(19);
     });
 
     it('min temp is 10 degrees', function() {
       thermostat.temp = 11;
-      thermostat.down();
+      thermostat.down(1);
       expect(thermostat.temp).toEqual(thermostat.MIN_TEMP);
-    })
+    });
+
+    it('resets temperature to 20 degrees', function() {
+      thermostat.up(4);
+      thermostat.reset();
+      expect(thermostat.temp).toEqual(20);
+    });
+
   });
 
   describe('power saving mode', function() {
