@@ -9,6 +9,13 @@ Thermostat.prototype.up = function() {
 };
 
 Thermostat.prototype.down = function () {
+  if (this.isMinTemp()) {
+    return;
+  }
   this.temp -= 1;
-  return this.temp;
+  return this.temp
+};
+
+Thermostat.prototype.isMinTemp = function () {
+  return this.temp === this.MIN_TEMP
 };
