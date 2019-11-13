@@ -32,5 +32,19 @@ describe ('Thermostat', function() {
       thermostat.powerSave('on');
       expect(thermostat.maxTemp).toEqual(25)
     });
+
+    it('should set the max temp to 32 if mode is off', function() {
+      thermostat.powerSave('off');
+      expect(thermostat.maxTemp).toEqual(32);
+    });
+
+    it('should have power save mode on at start', function() {
+      expect(thermostat.isOn).toEqual(true);
+    });
+
+    it('should change isOn to false when powersave mode turned off', function() {
+      thermostat.powerSave('off')
+      expect(thermostat.isOn).toEqual(false);
+    })
   });
 });
