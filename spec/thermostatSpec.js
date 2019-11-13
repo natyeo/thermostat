@@ -12,9 +12,9 @@ describe ('Thermostat', function() {
       expect(thermostat.temp).toEqual(20);
     });
 
+    it('increases the temperature', function() {
+      expect(thermostat.up()).toEqual(21);
+    });
   });
-
-
-
 
 });
