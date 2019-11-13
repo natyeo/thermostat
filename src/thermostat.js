@@ -19,3 +19,11 @@ Thermostat.prototype.down = function () {
 Thermostat.prototype.isMinTemp = function () {
   return this.temp === this.MIN_TEMP
 };
+
+Thermostat.prototype.powerSave = function(mode) {
+  if (mode === 'on'){
+    this.maxTemp = 25;
+    return this.maxTemp
+  }
+    return this.maxTemp = 32;
+};
