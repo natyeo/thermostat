@@ -13,21 +13,21 @@ describe ('Thermostat', function() {
     });
 
     it('increases the temperature', function() {
-      expect(thermostat.up(1)).toEqual(21);
+      expect(thermostat.up()).toEqual(21);
     });
 
     it('descreses the temperature', function() {
-      expect(thermostat.down(1)).toEqual(19);
+      expect(thermostat.down()).toEqual(19);
     });
 
     it('min temp is 10 degrees', function() {
       thermostat.temp = 11;
-      thermostat.down(1);
+      thermostat.down();
       expect(thermostat.temp).toEqual(thermostat.MIN_TEMP);
     });
 
     it('resets temperature to 20 degrees', function() {
-      thermostat.up(4);
+      thermostat.up();
       thermostat.reset();
       expect(thermostat.temp).toEqual(20);
     });
@@ -54,4 +54,20 @@ describe ('Thermostat', function() {
       expect(thermostat.isOn).toEqual(false);
     })
   });
+
+  describe('current energy usage', function() {
+    it('should say low-usage when thermostat < 18', function() {
+      thermostat.temp = 17;
+      expect(thermostat.currentEnergyUsage()).toEqual('low');
+    });
+
+    it('when temp is between 18 and 25 degrees, says medium', function() {
+      expect(thermostat.currentEnergyUsage()).toEqual('medium');
+    });
+
+    it('when temp is over 25 degrees, says high', function() {
+      thermostat.temp = 25;
+      expect(thermostat.currentEnergyUsage()).toEqual('high');
+    })
+  })
 });

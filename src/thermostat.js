@@ -5,18 +5,18 @@ function Thermostat() {
   this.maxTemp = 25
 }
 
-Thermostat.prototype.up = function(number) {
+Thermostat.prototype.up = function() {
   if (this.isMaxTemp()) {
     return;
   }
-  return this.temp += number;
+  return this.temp += 1;
 };
 
-Thermostat.prototype.down = function(number) {
+Thermostat.prototype.down = function() {
   if (this.isMinTemp()) {
     return;
   }
-  return this.temp -= number;
+  return this.temp -= 1;
 };
 
 Thermostat.prototype.isMinTemp = function () {
@@ -41,3 +41,11 @@ Thermostat.prototype.isMaxTemp = function() {
 Thermostat.prototype.reset = function () {
   return this.temp = 20
 };
+
+Thermostat.prototype.currentEnergyUsage = function() {
+  if (this.temp < 18) {
+    return 'low';
+  } else if (this.temp < 25) {
+    return 'medium';
+  } else return 'high';
+}
