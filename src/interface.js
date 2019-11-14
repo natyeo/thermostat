@@ -46,9 +46,9 @@ $(document).ready(function() {
 
   function updatePSM() {
     if (thermostat.isOn === true) {
-      $('#power-save').text("on")
+      $('#PSM').attr('src', "https://modernpurair.com/wp-content/uploads/2017/03/NEST-Leaf.png")
     } else {
-      $('#power-save').text("off")
+      $('#PSM').attr('src', "https://img.pngio.com/heat-png-96-images-in-collection-page-1-png-heat-250_250.jpg")
     }
   }
 
